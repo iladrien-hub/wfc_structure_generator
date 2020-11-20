@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "wfcstructuregenerator:block/stone_stick_block" }
+  }
+}
