@@ -22,8 +22,10 @@ public abstract class Tile {
     // Variants
     protected ArrayList<Tile> variants_u = new ArrayList<>();
     protected ArrayList<Tile> variants_d = new ArrayList<>();
-
-
+    protected ArrayList<Tile> variants_s = new ArrayList<>();
+    protected ArrayList<Tile> variants_n = new ArrayList<>();
+    protected ArrayList<Tile> variants_e = new ArrayList<>();
+    protected ArrayList<Tile> variants_w = new ArrayList<>();
 
     public void placeAt(World world, BlockPos pos) {
         BlockState[][][] data  = getStructure();
