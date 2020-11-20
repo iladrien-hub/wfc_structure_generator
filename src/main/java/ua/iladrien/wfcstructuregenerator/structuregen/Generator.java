@@ -6,6 +6,7 @@ import ua.iladrien.wfcstructuregenerator.structuregen.tile.ListHolder;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.Tile;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Generator {
@@ -42,13 +43,22 @@ public class Generator {
         collapse(x, y, z);
     }
 
+    private void doCollapse(int x, int y, int z, ArrayList<Tile> comparable) {
+        if (checkCoordinates(x, y, z) && data[y][x][z].list.size() > 1) {
+            data[y][x][z].list.removeIf(tile -> !comparable.contains(tile));
+            if (data[y][x][z].list.size() == 1)
+                collapse(x, y, z);
+        }
+    }
+
     protected void collapse(int x, int y, int z) {
         Tile thisTile = data[y][x][z].list.get(0);
-        if (checkCoordinates(x, y+1, z) && data[y+1][x][z].list.size() > 1) {
-            data[y+1][x][z].list.removeIf(tile -> !thisTile.getVariants_u().contains(tile));
-            if (data[y+1][x][z].list.size() == 1)
-                collapse(x, y+1, z);
-        }
+        doCollapse(x, y+1, z, thisTile.getVariants_u());
+        doCollapse(x, y-1, z, thisTile.getVariants_d());
+        doCollapse(x+1, y, z, thisTile.getVariants_e());
+        doCollapse(x-1, y, z, thisTile.getVariants_e());
+        doCollapse(x, y, z+1, thisTile.getVariants_s());
+        doCollapse(x, y, z-1, thisTile.getVariants_n());
     }
 
     public void place(World world, BlockPos pos) {
