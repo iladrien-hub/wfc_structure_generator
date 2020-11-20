@@ -58,6 +58,22 @@ public abstract class Tile {
         return new ArrayList<>(variants_u);
     }
 
+    public ArrayList<Tile> getVariants_s() {
+        return new ArrayList<>(variants_s);
+    }
+
+    public ArrayList<Tile> getVariants_n() {
+        return new ArrayList<>(variants_n);
+    }
+
+    public ArrayList<Tile> getVariants_e() {
+        return new ArrayList<>(variants_e);
+    }
+
+    public ArrayList<Tile> getVariants_w() {
+        return new ArrayList<>(variants_w);
+    }
+
     public boolean isAllowedOnGround() {
         return allowedOnGround;
     }
