@@ -87,7 +87,7 @@ public class Generator {
         doCollapse(x, y+1, z, thisTile.getVariants_u());
         doCollapse(x, y-1, z, thisTile.getVariants_d());
         doCollapse(x+1, y, z, thisTile.getVariants_e());
-        doCollapse(x-1, y, z, thisTile.getVariants_e());
+        doCollapse(x-1, y, z, thisTile.getVariants_w());
         doCollapse(x, y, z+1, thisTile.getVariants_s());
         doCollapse(x, y, z-1, thisTile.getVariants_n());
     }
