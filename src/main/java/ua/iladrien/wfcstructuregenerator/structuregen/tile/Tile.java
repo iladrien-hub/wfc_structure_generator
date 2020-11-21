@@ -16,6 +16,7 @@ public abstract class Tile {
     public abstract BlockState[][][] getStructure();
 
     protected boolean allowedOnGround = true;
+    protected boolean onGroundOnly = false;
 
     protected TileRotation rotation = TileRotation.ROTATION0;
 
@@ -29,8 +30,17 @@ public abstract class Tile {
 
     public void placeAt(World world, BlockPos pos) {
         BlockState[][][] data  = getStructure();
-        for (int i = 0; i < rotation.angle; i++) {
-            data = RotateStructure.rotate(data);
+        switch (rotation) {
+            case ROTATION0:
+                break;
+            case ROTATION90:
+                data = RotateStructure.rotate90(data);
+                break;
+            case ROTATION180:
+                data = RotateStructure.rotate180(data);
+                break;
+            case ROTATION270:
+                data = RotateStructure.rotate270(data);
         }
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
@@ -76,5 +86,9 @@ public abstract class Tile {
 
     public boolean isAllowedOnGround() {
         return allowedOnGround;
+    }
+
+    public boolean isOnGroundOnly() {
+        return onGroundOnly;
     }
 }
