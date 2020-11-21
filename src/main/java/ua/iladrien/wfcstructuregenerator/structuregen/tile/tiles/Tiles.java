@@ -32,10 +32,10 @@ public class Tiles {
     public static final Tile SIMPLE_SPRUCE_ROOF_T_180 = register(new TileSimpleSpruceRoof_T()).setRotation(TileRotation.ROTATION180);
     public static final Tile SIMPLE_SPRUCE_ROOF_T_270 = register(new TileSimpleSpruceRoof_T()).setRotation(TileRotation.ROTATION270);
     // SIMPLE_SPRUCE_ROOF_EDGE
-    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE = new SimpleSpruceRoofEdge();
-    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE_90 = (new SimpleSpruceRoofEdge()).setRotation(TileRotation.ROTATION90);
-    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE_180 = (new SimpleSpruceRoofEdge()).setRotation(TileRotation.ROTATION180);
-    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE_270 = (new SimpleSpruceRoofEdge()).setRotation(TileRotation.ROTATION270);
+    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE = register(new SimpleSpruceRoofEdge());
+    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE_90 = register(new SimpleSpruceRoofEdge()).setRotation(TileRotation.ROTATION90);
+    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE_180 = register(new SimpleSpruceRoofEdge()).setRotation(TileRotation.ROTATION180);
+    public static final Tile SIMPLE_SPRUCE_ROOF_EDGE_270 = register(new SimpleSpruceRoofEdge()).setRotation(TileRotation.ROTATION270);
     // ASSET_0004
     public static final Tile ASSET_0004 = register(new Asset_0004());
     // ASSET_0005
