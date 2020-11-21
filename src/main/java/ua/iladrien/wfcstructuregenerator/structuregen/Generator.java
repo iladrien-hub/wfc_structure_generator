@@ -31,6 +31,9 @@ public class Generator {
                     } else {
                         result[y][x][z].list.removeIf(Tile::isOnGroundOnly);
                     }
+                    if (x == 0 || x == size_X-1 || z == 0 || z == size_Z-1) {
+                        result[y][x][z].list.removeIf(tile -> !tile.isAllowedOnEdge());
+                    }
                 }
         return result;
     }

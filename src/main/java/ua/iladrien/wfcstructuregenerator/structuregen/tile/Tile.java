@@ -17,6 +17,7 @@ public abstract class Tile {
 
     protected boolean allowedOnGround = true;
     protected boolean onGroundOnly = false;
+    protected boolean allowedOnEdge = false;
 
     protected TileRotation rotation = TileRotation.ROTATION0;
 
@@ -132,5 +133,9 @@ public abstract class Tile {
 
     public boolean isOnGroundOnly() {
         return onGroundOnly;
+    }
+
+    public boolean isAllowedOnEdge() {
+        return allowedOnEdge;
     }
 }
