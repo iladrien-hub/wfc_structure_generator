@@ -6,6 +6,7 @@ import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.Si
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.TileSimpleSpruceRoof;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.TileSimpleSpruceRoof_T;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoom.impl.TileBigSpruceRoom;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.impl.Asset_0006;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoof.impl.Asset_0005;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoom.impl.Asset_0004;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoom.impl.FancyStoneRoom;
@@ -17,6 +18,7 @@ public class Tiles {
 
     protected static final ArrayList<Tile> registered = new ArrayList<>();
 
+    public static final Tile EMPTY_TILE = register(new EmptyTile());
     // FANCY_STONE_BASE
     public static final Tile FANCY_STONE_BASE = register(new FancyStoneRoom());
     // BIG_SPRUCE_ROOM
@@ -38,6 +40,11 @@ public class Tiles {
     public static final Tile ASSET_0004 = register(new Asset_0004());
     // ASSET_0005
     public static final Tile ASSET_0005 = register(new Asset_0005());
+    // ASSET_0006
+    public static final Tile ASSET_0006 = register(new Asset_0006());
+    public static final Tile ASSET_0006_90 = register(new Asset_0006()).setRotation(TileRotation.ROTATION90);
+    public static final Tile ASSET_0006_180 = register(new Asset_0006()).setRotation(TileRotation.ROTATION180);
+    public static final Tile ASSET_0006_270 = register(new Asset_0006()).setRotation(TileRotation.ROTATION270);
 
     private static Tile register(Tile asset) {
         registered.add(asset);

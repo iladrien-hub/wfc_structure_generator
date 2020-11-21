@@ -7,6 +7,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.Direction;
 import ua.iladrien.wfcstructuregenerator.structuregen.pattern.Patterns;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoom.SmallRoom;
 
 public class FancyStoneRoom extends SmallRoom {
@@ -17,6 +18,11 @@ public class FancyStoneRoom extends SmallRoom {
     @Override
     public void registerVariants() {
         super.registerVariants();
+        //
+        variants_w.add(Tiles.ASSET_0006);
+        variants_e.add(Tiles.ASSET_0006_180);
+        variants_n.add(Tiles.ASSET_0006_90);
+        variants_s.add(Tiles.ASSET_0006_270);
     }
 
     @Override
