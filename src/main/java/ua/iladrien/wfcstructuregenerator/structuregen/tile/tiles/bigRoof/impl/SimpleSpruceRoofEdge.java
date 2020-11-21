@@ -3,9 +3,9 @@ package ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl;
 import net.minecraft.block.*;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
-import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.RoofEdge;
 
-public class SimpleSpruceRoofEdge extends BigRoof {
+public class SimpleSpruceRoofEdge extends RoofEdge {
 
     private static final BlockState SPRUCE_STAIRS = Blocks.SPRUCE_STAIRS.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
