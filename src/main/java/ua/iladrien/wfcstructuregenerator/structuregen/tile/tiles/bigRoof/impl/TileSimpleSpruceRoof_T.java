@@ -5,6 +5,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof;
 
 public class TileSimpleSpruceRoof_T extends BigRoof {
@@ -13,6 +14,69 @@ public class TileSimpleSpruceRoof_T extends BigRoof {
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
     private static final BlockState SPRUCE_SLAB = Blocks.SPRUCE_SLAB.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
+
+    private void addWestVariants() {
+        addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_90);
+        addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_90);
+        addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
+        addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
+        addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
+    }
+
+    private void addSouthVariants() {
+        addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_180);
+        addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF);
+        addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_T);
+        addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
+        addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
+    }
+
+    private void addEastVariants() {
+        addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_270);
+        addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_90);
+        addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T);
+        addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
+        addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
+    }
+
+    private void addNorthVariants() {
+        addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_EDGE);
+        addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF);
+        addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_T);
+        addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
+        addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
+    }
+
+    @Override
+    public void registerVariants() {
+        super.registerVariants();
+        switch (rotation) {
+            case ROTATION0:
+                addWestVariants();
+                addSouthVariants();
+                addVariant_e(Tiles.EMPTY_TILE);
+                addNorthVariants();
+                break;
+            case ROTATION90:
+                addWestVariants();
+                addSouthVariants();
+                addEastVariants();
+                addVariant_n(Tiles.EMPTY_TILE);
+                break;
+            case ROTATION180:
+                addVariant_w(Tiles.EMPTY_TILE);
+                addSouthVariants();
+                addEastVariants();
+                addNorthVariants();
+                break;
+            case ROTATION270:
+                addWestVariants();
+                addVariant_s(Tiles.EMPTY_TILE);
+                addEastVariants();
+                addNorthVariants();
+                break;
+        }
+    }
 
     @Override
     public BlockState[][][] getStructure() {

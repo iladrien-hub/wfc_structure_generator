@@ -21,12 +21,12 @@ public abstract class Tile {
     protected TileRotation rotation = TileRotation.ROTATION0;
 
     // Variants
-    protected ArrayList<Tile> variants_u = new ArrayList<>();
-    protected ArrayList<Tile> variants_d = new ArrayList<>();
-    protected ArrayList<Tile> variants_s = new ArrayList<>();
-    protected ArrayList<Tile> variants_n = new ArrayList<>();
-    protected ArrayList<Tile> variants_e = new ArrayList<>();
-    protected ArrayList<Tile> variants_w = new ArrayList<>();
+    private final ArrayList<Tile> variants_u = new ArrayList<>();
+    private final ArrayList<Tile> variants_d = new ArrayList<>();
+    private final ArrayList<Tile> variants_s = new ArrayList<>();
+    private final ArrayList<Tile> variants_n = new ArrayList<>();
+    private final ArrayList<Tile> variants_e = new ArrayList<>();
+    private final ArrayList<Tile> variants_w = new ArrayList<>();
 
     public void placeAt(World world, BlockPos pos) {
         BlockState[][][] data  = getStructure();

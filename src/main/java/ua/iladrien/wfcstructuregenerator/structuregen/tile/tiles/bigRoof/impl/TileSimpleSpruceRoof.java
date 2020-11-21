@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.Direction;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof;
 
 public class TileSimpleSpruceRoof extends BigRoof {
@@ -12,6 +13,49 @@ public class TileSimpleSpruceRoof extends BigRoof {
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
     private static final BlockState SPRUCE_SLAB = Blocks.SPRUCE_SLAB.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
+
+    @Override
+    public void registerVariants() {
+        super.registerVariants();
+        switch (rotation) {
+            case ROTATION0:
+                // SOUTH
+                addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_180);
+                addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF);
+                addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_T);
+                addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
+                addVariant_s(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
+                // EAST
+                addVariant_e(Tiles.EMPTY_TILE);
+                // NORTH
+                addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_EDGE);
+                addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF);
+                addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_T);
+                addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
+                addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
+                // WEST
+                addVariant_w(Tiles.EMPTY_TILE);
+                break;
+            case ROTATION90:
+                // SOUTH
+                addVariant_s(Tiles.EMPTY_TILE);
+                // EAST
+                addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_90);
+                addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_270);
+                addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T);
+                addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
+                addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
+                // NORTH
+                addVariant_n(Tiles.EMPTY_TILE);
+                // WEST
+                addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_90);
+                addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_90);
+                addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
+                addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
+                addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
+                break;
+        }
+    }
 
     @Override
     public BlockState[][][] getStructure() {

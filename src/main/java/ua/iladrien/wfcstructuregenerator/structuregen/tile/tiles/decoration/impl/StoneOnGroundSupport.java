@@ -6,16 +6,16 @@ import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
-import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.Decoration;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.DirectionalDecoration;
 
-public class Asset_0006 extends Decoration {
+public class StoneOnGroundSupport extends DirectionalDecoration {
 
     private static final BlockState STONE_BRICK_STAIRS = Blocks.STONE_BRICK_STAIRS.getDefaultState();
     private static final BlockState STONE_BRICKS = Blocks.STONE_BRICKS.getDefaultState();
     private static final BlockState STONE_BRICK_SLAB = Blocks.STONE_BRICK_SLAB.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
 
-    public Asset_0006() {
+    public StoneOnGroundSupport() {
         super();
         onGroundOnly = true;
     }
@@ -23,32 +23,7 @@ public class Asset_0006 extends Decoration {
     @Override
     public void registerVariants() {
         super.registerVariants();
-        switch (rotation) {
-            case ROTATION0:
-                variants_e.add(Tiles.FANCY_STONE_BASE);
-                variants_w.add(Tiles.EMPTY_TILE);
-                variants_s.add(Tiles.EMPTY_TILE);
-                variants_n.add(Tiles.EMPTY_TILE);
-                break;
-            case ROTATION90:
-                variants_s.add(Tiles.FANCY_STONE_BASE);
-                variants_w.add(Tiles.EMPTY_TILE);
-                variants_n.add(Tiles.EMPTY_TILE);
-                variants_e.add(Tiles.EMPTY_TILE);
-                break;
-            case ROTATION180:
-                variants_w.add(Tiles.FANCY_STONE_BASE);
-                variants_e.add(Tiles.EMPTY_TILE);
-                variants_s.add(Tiles.EMPTY_TILE);
-                variants_n.add(Tiles.EMPTY_TILE);
-                break;
-            case ROTATION270:
-                variants_n.add(Tiles.FANCY_STONE_BASE);
-                variants_w.add(Tiles.EMPTY_TILE);
-                variants_e.add(Tiles.EMPTY_TILE);
-                variants_s.add(Tiles.EMPTY_TILE);
-                break;
-        }
+        addVariant_u(Tiles.BIG_SPRUCE_ROOM);
     }
 
     @Override

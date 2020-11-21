@@ -16,14 +16,22 @@ public class TileBigSpruceRoom extends BigRoom {
     public void registerVariants() {
         super.registerVariants();
         // UP
-        variants_u.add(Tiles.SIMPLE_SPRUCE_ROOF);
-        variants_u.add(Tiles.SIMPLE_SPRUCE_ROOF_90);
-        variants_u.add(Tiles.SIMPLE_SPRUCE_ROOF_T);
-        variants_u.add(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
-        variants_u.add(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
-        variants_u.add(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
-        // Down
-
+        addVariant_u(Tiles.SIMPLE_SPRUCE_ROOF);
+        addVariant_u(Tiles.SIMPLE_SPRUCE_ROOF_90);
+        addVariant_u(Tiles.SIMPLE_SPRUCE_ROOF_T);
+        addVariant_u(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
+        addVariant_u(Tiles.SIMPLE_SPRUCE_ROOF_T_180);
+        addVariant_u(Tiles.SIMPLE_SPRUCE_ROOF_T_270);
+        //
+        addVariant_e(Tiles.BIG_SPRUCE_ROOM);
+        addVariant_n(Tiles.BIG_SPRUCE_ROOM);
+        addVariant_w(Tiles.BIG_SPRUCE_ROOM);
+        addVariant_s(Tiles.BIG_SPRUCE_ROOM);
+        //
+        addVariant_e(Tiles.EMPTY_TILE);
+        addVariant_n(Tiles.EMPTY_TILE);
+        addVariant_w(Tiles.EMPTY_TILE);
+        addVariant_s(Tiles.EMPTY_TILE);
     }
 
     public TileBigSpruceRoom() {

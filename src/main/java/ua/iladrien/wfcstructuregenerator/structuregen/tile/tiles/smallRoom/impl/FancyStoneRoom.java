@@ -23,11 +23,9 @@ public class FancyStoneRoom extends SmallRoom {
     @Override
     public void registerVariants() {
         super.registerVariants();
-        //
-        variants_w.add(Tiles.ASSET_0006);
-        variants_e.add(Tiles.ASSET_0006_180);
-        variants_n.add(Tiles.ASSET_0006_90);
-        variants_s.add(Tiles.ASSET_0006_270);
+        addVariant_w(Tiles.STONE_ON_GROUND_SUPPORT);
+        addVariant_e(Tiles.STONE_ON_GROUND_SUPPORT_180);
+        addVariant_s(Tiles.STONE_ON_GROUND_SUPPORT_90);
     }
 
     @Override
