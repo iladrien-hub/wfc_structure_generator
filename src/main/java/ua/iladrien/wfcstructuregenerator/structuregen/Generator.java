@@ -2,6 +2,8 @@ package ua.iladrien.wfcstructuregenerator.structuregen;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.Level;
+import ua.iladrien.wfcstructuregenerator.WFCStructureGenerator;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.ListHolder;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.Tile;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
@@ -98,72 +100,32 @@ public class Generator {
         for (int y = 0; y < size_Y; y++) {
             for (int x = 0; x < size_X; x++) {
                 for (int z = 0; z < size_Z; z++) {
-                    if (data[y][x][z].list.size() == 1)
-                        data[y][x][z].list.get(0).placeAt(world, pos.add(Tile.WIDTH*x-center_x-x, Tile.HEIGHT*y, Tile.WIDTH*z-center_z-z));
+                    if (data[y][x][z].list.size() == 1) {
+                        data[y][x][z].list.get(0).placeAt(world, pos.add(Tile.WIDTH * x - center_x - x, Tile.HEIGHT * y, Tile.WIDTH * z - center_z - z));
+                    } else
+                        WFCStructureGenerator.log(Level.WARN, "At (" +
+                                String.join(",", new String[]{String.valueOf(x), String.valueOf(y), String.valueOf(z)}) +
+                                ") received empty list");
                 }
             }
         }
     }
-
-//    public void generateRoofs() {
-//        for (int y = 0; y < size_Y - 1; y++)
-//            for (int x = 0; x < size_X; x++)
-//                for (int z = 0; z < size_Z; z++) {
-//                    if (building[y][x][z] != null && building[y+1][x][z] == null) {
-//                        int finalY = y;
-//                        int finalX = x;
-//                        int finalZ = z;
-//                        roofs[y+1][x][z] = new ListHolder();
-//                        roofs[y+1][x][z].list = Tiles.getRoofs();
-//                        roofs[y+1][x][z].list.removeIf(tile -> !building[finalY][finalX][finalZ].getVariants_u().contains(tile));
-//                    }
-//                }
-//    }
-
-//    protected void collapse(int x, int y, int z) {
-//        if (building[y][x][z] != null) return;
-//
-//        ArrayList<Tile> variants = new ArrayList<>(Tiles.getRooms());
-//        // Down
-//        int step = y - 1;
-//        if (checkCoordinates(x, step, z) && building[step][x][z] != null) {
-//            variants.removeIf(tile -> !building[step][x][z].getVariants_u().contains(tile));
-//        }
-//
-//        if (variants.size() > 0)
-//            building[y][x][z] = variants.get(RANDOM.nextInt(variants.size()));
-//
-//        if (checkCoordinates(x, y+1, z)) collapse(x, y+1, z);
-//    }
-
-//    public void place(World world, BlockPos pos) {
-//        int center_x = size_X * Tile.WIDTH / 2;
-//        int center_z = size_Z * Tile.WIDTH / 2;
-//        for (int y = 0; y < size_Y; y++) {
-//            for (int x = 0; x < size_X; x++) {
-//                for (int z = 0; z < size_Z; z++) {
-//                    if (building[y][x][z] != null)
-//                        building[y][x][z].placeAt(world, pos.add(Tile.WIDTH*x-center_x, Tile.HEIGHT*y, Tile.WIDTH*z-center_z));
-//                }
-//            }
-//        }
-//    }
 
     private boolean checkCoordinates(int x, int y, int z) {
         return x >= 0 && y >=0 && z >=0 && x < size_X && y < size_Y && z < size_Z;
     }
 
     private boolean checkCollisions(int x, int y, int z) {
-        if (checkCoordinates(x, y + 1, z) && data[x][y + 1][z].list.size() == 1)
+        if (checkCoordinates(x, y + 1, z) && data[x][y + 1][z].list.size() == 1 && data[x][y + 1][z].list.get(0) != Tiles.EMPTY_TILE)
             return true;
-        if (checkCoordinates(x, y - 1, z) && data[x][y - 1][z].list.size() == 1)
+        if (checkCoordinates(x, y - 1, z) && data[x][y - 1][z].list.size() == 1 && data[x][y - 1][z].list.get(0) != Tiles.EMPTY_TILE)
             return true;
-        if (checkCoordinates(x + 1, y, z) && data[x + 1][y][z].list.size() == 1)
+        if (checkCoordinates(x + 1, y, z) && data[x + 1][y][z].list.size() == 1 && data[x + 1][y][z].list.get(0) != Tiles.EMPTY_TILE)
             return true;
-        if (checkCoordinates(x - 1, y, z) && data[x - 1][y][z].list.size() == 1)
+        if (checkCoordinates(x - 1, y, z) && data[x - 1][y][z].list.size() == 1 && data[x - 1][y][z].list.get(0) != Tiles.EMPTY_TILE)
             return true;
-        if (checkCoordinates(x, y, z + 1) && data[x][y][z + 1].list.size() == 1)
+        if (checkCoordinates(x, y, z + 1) && data[x][y][z + 1].list.size() == 1 && data[x][y][z + 1].list.get(0) != Tiles.EMPTY_TILE)
             return true;
-        return checkCoordinates(x, y, z - 1) && data[x][y][z - 1].list.size() == 1;
+        return checkCoordinates(x, y, z - 1) && data[x][y][z - 1].list.size() == 1 && data[x][y][z - 1].list.get(0) != Tiles.EMPTY_TILE;
     }
 }
