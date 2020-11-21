@@ -1,6 +1,7 @@
 package ua.iladrien.wfcstructuregenerator.item;
 
 import com.google.common.collect.ImmutableMap;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
@@ -94,10 +95,12 @@ public class StickSelectorItem extends Item {
                 case "hinge":
                     fw.write(".with(DoorBlock.HINGE, DoorHingeSide." + item.getValue().toString().toUpperCase() + ")");
                     break;
+                case "shape":
+                    fw.write(".with(StairsBlock.SHAPE, StairsShape." + item.getValue().toString().toUpperCase() + ")");
+                    break;
                 default:
                     WFCStructureGenerator.log(Level.WARN, "Uncaught property \""+ item.getKey().getName() +"\" = " + item.getValue().toString());
             }
-            // fw.write(item.getKey().getName() + " " + item.getValue());
         }
 
         fw.append(";\n");
