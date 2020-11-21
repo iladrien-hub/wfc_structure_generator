@@ -15,6 +15,11 @@ public class Asset_0004 extends SmallRoom {
     private static final BlockState SPRUCE_PLANKS = Blocks.SPRUCE_PLANKS.getDefaultState();
     private static final BlockState STONE_BRICK_STAIRS = Blocks.STONE_BRICK_STAIRS.getDefaultState();
 
+    public Asset_0004() {
+        super();
+        onGroundOnly = true;
+    }
+
     @Override
     public void registerVariants() {
         super.registerVariants();

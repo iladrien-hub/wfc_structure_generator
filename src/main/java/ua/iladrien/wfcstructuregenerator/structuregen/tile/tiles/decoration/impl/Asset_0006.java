@@ -5,11 +5,8 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
-import net.minecraft.util.Direction;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.Decoration;
-
-import java.time.LocalDate;
 
 public class Asset_0006 extends Decoration {
 
@@ -17,6 +14,11 @@ public class Asset_0006 extends Decoration {
     private static final BlockState STONE_BRICKS = Blocks.STONE_BRICKS.getDefaultState();
     private static final BlockState STONE_BRICK_SLAB = Blocks.STONE_BRICK_SLAB.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
+
+    public Asset_0006() {
+        super();
+        onGroundOnly = true;
+    }
 
     @Override
     public void registerVariants() {

@@ -15,6 +15,11 @@ public class FancyStoneRoom extends SmallRoom {
     private static final BlockState STONE_BRICK_STAIRS = Blocks.STONE_BRICK_STAIRS.getDefaultState();
     private static final BlockState STONE_BRICKS = Blocks.STONE_BRICKS.getDefaultState();
 
+    public FancyStoneRoom() {
+        super();
+        onGroundOnly = true;
+    }
+
     @Override
     public void registerVariants() {
         super.registerVariants();
