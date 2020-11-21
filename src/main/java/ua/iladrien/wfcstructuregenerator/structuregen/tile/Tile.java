@@ -60,6 +60,48 @@ public abstract class Tile {
         return this;
     }
 
+    protected void addVariant_u(Tile variant) {
+        if (!variants_u.contains(variant))
+            variants_u.add(variant);
+        if (!variant.variants_d.contains(this))
+            variant.variants_d.add(this);
+    }
+
+    protected void addVariant_d(Tile variant) {
+        if (!variants_d.contains(variant))
+            variants_d.add(variant);
+        if (!variant.variants_u.contains(this))
+            variant.variants_u.add(this);
+    }
+
+    protected void addVariant_e(Tile variant) {
+        if (!variants_e.contains(variant))
+            variants_e.add(variant);
+        if (!variant.variants_w.contains(this))
+            variant.variants_w.add(this);
+    }
+
+    protected void addVariant_w(Tile variant) {
+        if (!variants_w.contains(variant))
+            variants_w.add(variant);
+        if (!variant.variants_e.contains(this))
+            variant.variants_e.add(this);
+    }
+
+    protected void addVariant_s(Tile variant) {
+        if (!variants_s.contains(variant))
+            variants_s.add(variant);
+        if (!variant.variants_n.contains(this))
+            variant.variants_n.add(this);
+    }
+
+    protected void addVariant_n(Tile variant) {
+        if (!variants_n.contains(variant))
+            variants_n.add(variant);
+        if (!variant.variants_s.contains(this))
+            variant.variants_s.add(this);
+    }
+
     public ArrayList<Tile> getVariants_d() {
         return new ArrayList<>(variants_d);
     }
