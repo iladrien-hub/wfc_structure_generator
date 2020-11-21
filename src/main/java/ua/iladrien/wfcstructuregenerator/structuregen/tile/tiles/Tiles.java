@@ -6,7 +6,7 @@ import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.Si
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.TileSimpleSpruceRoof;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.TileSimpleSpruceRoof_T;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoom.impl.TileBigSpruceRoom;
-import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.impl.Asset_0006;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.impl.StoneOnGroundSupport;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoof.impl.Asset_0005;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoom.impl.Asset_0004;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoom.impl.FancyStoneRoom;
@@ -40,11 +40,11 @@ public class Tiles {
     public static final Tile ASSET_0004 = register(new Asset_0004());
     // ASSET_0005
     public static final Tile ASSET_0005 = register(new Asset_0005());
-    // ASSET_0006
-    public static final Tile ASSET_0006 = register(new Asset_0006());
-    public static final Tile ASSET_0006_90 = register(new Asset_0006()).setRotation(TileRotation.ROTATION90);
-    public static final Tile ASSET_0006_180 = register(new Asset_0006()).setRotation(TileRotation.ROTATION180);
-    public static final Tile ASSET_0006_270 = register(new Asset_0006()).setRotation(TileRotation.ROTATION270);
+    // STONE_ON_GROUND_SUPPORT
+    public static final Tile STONE_ON_GROUND_SUPPORT = register(new StoneOnGroundSupport());
+    public static final Tile STONE_ON_GROUND_SUPPORT_90 = register(new StoneOnGroundSupport()).setRotation(TileRotation.ROTATION90);
+    public static final Tile STONE_ON_GROUND_SUPPORT_180 = register(new StoneOnGroundSupport()).setRotation(TileRotation.ROTATION180);
+    public static final Tile STONE_ON_GROUND_SUPPORT_270 = register(new StoneOnGroundSupport()).setRotation(TileRotation.ROTATION270);
 
     private static Tile register(Tile asset) {
         registered.add(asset);
