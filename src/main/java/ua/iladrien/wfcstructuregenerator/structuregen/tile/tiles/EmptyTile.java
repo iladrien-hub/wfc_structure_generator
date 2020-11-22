@@ -12,7 +12,9 @@ public class EmptyTile extends Tile {
 
     @Override
     public void registerVariants() {
-
+        addVariant_u(this);
+        addVariant_w(this);
+        addVariant_s(this);
     }
 
     @Override
