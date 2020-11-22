@@ -49,21 +49,22 @@ public class Generator {
     }
 
     private dataItemStruct getUnfinished() {
-        dataItemStruct max = new dataItemStruct();
-        max.x = 0;
-        max.y = 0;
-        max.z = 0;
-        max.list = data[0][0][0].list;
+        ArrayList<dataItemStruct> items = new ArrayList<>();
         for (int y = 0; y < size_Y; y++)
             for (int x = 0; x < size_X; x++)
                 for (int z = 0; z < size_Z; z++)
-                    if (data[y][x][z].list.size() > max.list.size()) {
-                        max.x = x;
-                        max.y = y;
-                        max.z = z;
-                        max.list = data[y][x][z].list;
+                    if (data[y][x][z].list.size() > 1) {
+                        // TODO: (someonePLZ) rewrite this scrap
+                        dataItemStruct item = new dataItemStruct();
+                        item.x = x;
+                        item.y = y;
+                        item.z = z;
+                        item.list = data[y][x][z].list;
+                        items.add(item);
                     }
-        return max;
+        if (items.size() > 0)
+            return items.get(RANDOM.nextInt(items.size()));
+        return null;
     }
 
     public void generate() {
@@ -88,7 +89,7 @@ public class Generator {
             if (data[y][x][z].list.size() == 0) generate();
         }
         dataItemStruct max = getUnfinished();
-        if (max.list.size() > 1) {
+        if (max != null) {
             Tile randomTile = max.list.get(RANDOM.nextInt(max.list.size()));
             data[max.y][max.x][max.z].list.clear();
             data[max.y][max.x][max.z].list.add(randomTile);
