@@ -54,7 +54,7 @@ public class Generator {
         for (int y = 0; y < size_Y; y++)
             for (int x = 0; x < size_X; x++)
                 for (int z = 0; z < size_Z; z++)
-                    if (data[y][x][z].list.size() > 1 && checkCollisions(x, y, z)) {
+                    if (data[y][x][z].list.size() > 1) {
                         max.x = x;
                         max.y = y;
                         max.z = z;
@@ -69,33 +69,10 @@ public class Generator {
         int z = 1;
         data = initializeData();
         data[y][x][z].list.removeIf(tile -> tile != Tiles.FANCY_STONE_BASE);
-        collapse(x, y, z);
-        dataItemStruct max = getUnfinished();
-        while (max.list.size() > 1) {
-            Tile random = max.list.get(RANDOM.nextInt(max.list.size()));
-            max.list.removeIf(tile -> tile != random);
-            collapse(max.x, max.y, max.z);
-            max = getUnfinished();
-        }
+
     }
 
-    private void doCollapse(int x, int y, int z, ArrayList<Tile> comparable) {
-        if (checkCoordinates(x, y, z) && data[y][x][z].list.size() > 1) {
-            data[y][x][z].list.removeIf(tile -> !comparable.contains(tile));
-            if (data[y][x][z].list.size() == 1)
-                collapse(x, y, z);
-        }
-    }
 
-    protected void collapse(int x, int y, int z) {
-        Tile thisTile = data[y][x][z].list.get(0);
-        doCollapse(x, y+1, z, thisTile.getVariants_u());
-        doCollapse(x, y-1, z, thisTile.getVariants_d());
-        doCollapse(x+1, y, z, thisTile.getVariants_e());
-        doCollapse(x-1, y, z, thisTile.getVariants_w());
-        doCollapse(x, y, z+1, thisTile.getVariants_s());
-        doCollapse(x, y, z-1, thisTile.getVariants_n());
-    }
 
     public void place(World world, BlockPos pos) {
         int center_x = -1 + size_X * Tile.WIDTH / 2;
@@ -116,19 +93,5 @@ public class Generator {
 
     private boolean checkCoordinates(int x, int y, int z) {
         return x >= 0 && y >=0 && z >=0 && x < size_X && y < size_Y && z < size_Z;
-    }
-
-    private boolean checkCollisions(int x, int y, int z) {
-        if (checkCoordinates(x, y + 1, z) && data[x][y + 1][z].list.size() == 1 && data[x][y + 1][z].list.get(0) != Tiles.EMPTY_TILE)
-            return true;
-        if (checkCoordinates(x, y - 1, z) && data[x][y - 1][z].list.size() == 1 && data[x][y - 1][z].list.get(0) != Tiles.EMPTY_TILE)
-            return true;
-        if (checkCoordinates(x + 1, y, z) && data[x + 1][y][z].list.size() == 1 && data[x + 1][y][z].list.get(0) != Tiles.EMPTY_TILE)
-            return true;
-        if (checkCoordinates(x - 1, y, z) && data[x - 1][y][z].list.size() == 1 && data[x - 1][y][z].list.get(0) != Tiles.EMPTY_TILE)
-            return true;
-        if (checkCoordinates(x, y, z + 1) && data[x][y][z + 1].list.size() == 1 && data[x][y][z + 1].list.get(0) != Tiles.EMPTY_TILE)
-            return true;
-        return checkCoordinates(x, y, z - 1) && data[x][y][z - 1].list.size() == 1 && data[x][y][z - 1].list.get(0) != Tiles.EMPTY_TILE;
     }
 }
