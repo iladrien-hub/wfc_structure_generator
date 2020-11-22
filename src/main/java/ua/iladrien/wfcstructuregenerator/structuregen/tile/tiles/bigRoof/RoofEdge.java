@@ -8,6 +8,7 @@ public abstract class RoofEdge extends Tile {
     public RoofEdge() {
         super();
         allowedOnEdge = true;
+        allowedOnGround = false;
     }
 
     @Override
