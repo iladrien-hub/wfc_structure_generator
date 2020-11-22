@@ -123,6 +123,9 @@ public class StickSelectorItem extends Item {
             else if (name.equals("persistent")) {
                 fw.write(".with(BlockStateProperties.PERSISTENT, " + item.getValue().toString() + ")");
             }
+            else if (name.equals("hanging")) {
+                fw.write(".with(BlockStateProperties.HANGING, " + item.getValue().toString() + ")");
+            }
             else {
                 WFCStructureGenerator.log(Level.WARN, "Uncaught property \""+ item.getKey().getName() +"\" = " + item.getValue().toString());
             }
