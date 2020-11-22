@@ -168,7 +168,7 @@ public class Generator {
         }
     }
 
-    private boolean checkCoordinates(int x, int y, int z) {
+    public boolean checkCoordinates(int x, int y, int z) {
         return x >= 0 && y >=0 && z >=0 && x < size_X && y < size_Y && z < size_Z;
     }
 }
