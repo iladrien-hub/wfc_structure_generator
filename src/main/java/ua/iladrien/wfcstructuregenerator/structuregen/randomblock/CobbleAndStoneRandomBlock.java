@@ -1,9 +1,9 @@
-package ua.iladrien.wfcstructuregenerator.structuregen.pattern;
+package ua.iladrien.wfcstructuregenerator.structuregen.randomblock;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 
-public class CobbleAndStonePattern extends AbstractPattern {
+public class CobbleAndStoneRandomBlock extends AbstractRandomBlock {
 
     private static final BlockState COBBLE = Blocks.COBBLESTONE.getDefaultState();
     private static final BlockState BRICKS = Blocks.STONE.getDefaultState();

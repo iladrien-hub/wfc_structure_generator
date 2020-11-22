@@ -5,7 +5,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.Direction;
-import ua.iladrien.wfcstructuregenerator.structuregen.pattern.Patterns;
+import ua.iladrien.wfcstructuregenerator.structuregen.randomblock.RandomBlocks;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoof.SmallRoof;
 
 public class Asset_0005 extends SmallRoof {
@@ -30,12 +30,12 @@ public class Asset_0005 extends SmallRoof {
         data[0][1][3] = SPRUCE_STAIRS.with(HorizontalBlock.HORIZONTAL_FACING, Direction.EAST).with(BlockStateProperties.HALF, Half.BOTTOM);
         data[0][1][4] = SPRUCE_STAIRS.with(HorizontalBlock.HORIZONTAL_FACING, Direction.EAST).with(BlockStateProperties.HALF, Half.BOTTOM);
         data[0][1][5] = STONE_BRICKS;
-        data[0][2][1] = Patterns.COBBLE_AND_STONE_PATTERN.get();
-        data[0][2][5] = Patterns.COBBLE_AND_STONE_PATTERN.get();
+        data[0][2][1] = RandomBlocks.COBBLE_AND_STONE_PATTERN.get();
+        data[0][2][5] = RandomBlocks.COBBLE_AND_STONE_PATTERN.get();
         data[0][3][1] = COBBLESTONE_STAIRS.with(HorizontalBlock.HORIZONTAL_FACING, Direction.SOUTH).with(BlockStateProperties.HALF, Half.BOTTOM);
         data[0][3][5] = COBBLESTONE_STAIRS.with(HorizontalBlock.HORIZONTAL_FACING, Direction.NORTH).with(BlockStateProperties.HALF, Half.BOTTOM);
-        data[0][4][1] = Patterns.COBBLE_AND_STONE_PATTERN.get();
-        data[0][4][5] = Patterns.COBBLE_AND_STONE_PATTERN.get();
+        data[0][4][1] = RandomBlocks.COBBLE_AND_STONE_PATTERN.get();
+        data[0][4][5] = RandomBlocks.COBBLE_AND_STONE_PATTERN.get();
         data[0][5][1] = STONE_BRICKS;
         data[0][5][2] = SPRUCE_STAIRS.with(HorizontalBlock.HORIZONTAL_FACING, Direction.WEST).with(BlockStateProperties.HALF, Half.BOTTOM);
         data[0][5][3] = SPRUCE_STAIRS.with(HorizontalBlock.HORIZONTAL_FACING, Direction.WEST).with(BlockStateProperties.HALF, Half.BOTTOM);

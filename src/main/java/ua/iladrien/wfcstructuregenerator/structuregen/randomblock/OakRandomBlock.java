@@ -1,11 +1,11 @@
-package ua.iladrien.wfcstructuregenerator.structuregen.pattern;
+package ua.iladrien.wfcstructuregenerator.structuregen.randomblock;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.util.Direction;
 
-public class OakPattern extends AbstractPattern {
+public class OakRandomBlock extends AbstractRandomBlock {
 
     private static final BlockState LOG = Blocks.STRIPPED_OAK_LOG.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y);
     private static final BlockState PLANKS = Blocks.OAK_PLANKS.getDefaultState();
