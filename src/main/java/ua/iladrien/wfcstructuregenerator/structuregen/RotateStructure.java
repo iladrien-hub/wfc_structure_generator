@@ -38,7 +38,8 @@ public class RotateStructure {
         for (int y = 0; y < size_y; y++) {
             for (int x = 0; x < size_x; x++) {
                 for (int z = 0; z < size_z; z++) {
-                    result[y][z][size_x-x-1] = update(initial[y][x][z], 1);
+                    if (initial[y][x][z] != null)
+                        result[y][z][size_x-x-1] = update(initial[y][x][z], 1);
                 }
             }
         }
@@ -53,7 +54,8 @@ public class RotateStructure {
         for (int y = 0; y < size_y; y++) {
             for (int x = 0; x < size_x; x++) {
                 for (int z = 0; z < size_z; z++) {
-                    result[y][size_x-x-1][size_z-z-1] = update(initial[y][x][z], 2);
+                    if (initial[y][x][z] != null)
+                        result[y][size_x-x-1][size_z-z-1] = update(initial[y][x][z], 2);
                 }
             }
         }
@@ -68,7 +70,8 @@ public class RotateStructure {
         for (int y = 0; y < size_y; y++) {
             for (int x = 0; x < size_x; x++) {
                 for (int z = 0; z < size_z; z++) {
-                    result[y][size_z-z-1][x] = update(initial[y][x][z], 3);
+                    if (initial[y][x][z] != null)
+                        result[y][size_z-z-1][x] = update(initial[y][x][z], 3);
                 }
             }
         }
