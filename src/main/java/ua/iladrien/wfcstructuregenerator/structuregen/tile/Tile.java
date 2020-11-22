@@ -4,6 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.World;
+import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
 import ua.iladrien.wfcstructuregenerator.structuregen.RotateStructure;
 
 import java.util.ArrayList;
@@ -155,4 +156,7 @@ public abstract class Tile {
             return getVariants_s();
         else return null;
     }
+
+    public boolean checkOutStrictConditions(Vector3i pos, Generator generator) { return true; }
+
 }

@@ -135,6 +135,7 @@ public class Generator {
                 new Vector3i(0,0,1),
                 new Vector3i(0,0,-1)
         };
+        if (!tile.checkOutStrictConditions(pos, this)) return false;
         for (Vector3i side: sides) {
             int dx = side.getX();
             int dy = side.getY();
