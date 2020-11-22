@@ -2,6 +2,7 @@ package ua.iladrien.wfcstructuregenerator.structuregen.tile;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.World;
 import ua.iladrien.wfcstructuregenerator.structuregen.RotateStructure;
 
@@ -137,5 +138,21 @@ public abstract class Tile {
 
     public boolean isAllowedOnEdge() {
         return allowedOnEdge;
+    }
+
+    public ArrayList<Tile> getVariants(Vector3i side) {
+        if (side.getX() == 1)
+            return getVariants_w();
+        else if (side.getX() == -1)
+            return getVariants_e();
+        else if (side.getY() == 1)
+            return getVariants_d();
+        else if (side.getY() == -1)
+            return getVariants_u();
+        else if (side.getZ() == 1)
+            return getVariants_n();
+        else if (side.getZ() == -1)
+            return getVariants_s();
+        else return null;
     }
 }
