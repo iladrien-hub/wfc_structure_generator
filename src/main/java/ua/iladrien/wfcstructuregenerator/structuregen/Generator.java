@@ -158,7 +158,7 @@ public class Generator {
             for (int x = 0; x < size_X; x++) {
                 for (int z = 0; z < size_Z; z++) {
                     if (data[y][x][z].list.size() == 1) {
-                        data[y][x][z].list.get(0).placeAt(world, pos.add(Tile.WIDTH * x - center_x - x, Tile.HEIGHT * y, Tile.WIDTH * z - center_z - z));
+                        data[y][x][z].list.get(0).placeAt(world, pos.add(Tile.WIDTH * x - center_x - x, Tile.HEIGHT * y, Tile.WIDTH * z - center_z - z), this);
                     } else
                         WFCStructureGenerator.log(Level.WARN, "At (" +
                                 String.join(",", new String[]{String.valueOf(x), String.valueOf(y), String.valueOf(z)}) +
