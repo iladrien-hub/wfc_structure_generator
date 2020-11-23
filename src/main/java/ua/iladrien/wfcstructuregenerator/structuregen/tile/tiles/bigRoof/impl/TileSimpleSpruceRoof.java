@@ -4,8 +4,13 @@ import net.minecraft.block.*;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.TileRotation;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.misc.Miscellaneous;
 
 public class TileSimpleSpruceRoof extends BigRoof {
 
@@ -13,6 +18,21 @@ public class TileSimpleSpruceRoof extends BigRoof {
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
     private static final BlockState SPRUCE_SLAB = Blocks.SPRUCE_SLAB.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
+
+    @Override
+    public void placeAt(World world, BlockPos pos, Generator generator) {
+        super.placeAt(world, pos, generator);
+        switch (rotation) {
+            case ROTATION0:
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION0).placeAt(world, pos.add(-WIDTH, -HEIGHT, 0), generator);
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION180).placeAt(world, pos.add(WIDTH,-HEIGHT, 0), generator);
+                break;
+            case ROTATION90:
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION90).placeAt(world, pos.add(0, -HEIGHT, WIDTH), generator);
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION270).placeAt(world, pos.add(0, -HEIGHT,-WIDTH), generator);
+                break;
+        }
+    }
 
     @Override
     public void registerVariants() {

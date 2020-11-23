@@ -5,15 +5,35 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3i;
+import net.minecraft.world.World;
+import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.TileRotation;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
-import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof_T;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.misc.Miscellaneous;
 
-public class TileSimpleSpruceRoof_T extends BigRoof {
+public class TileSimpleSpruceRoof_T extends BigRoof_T {
 
     private static final BlockState SPRUCE_STAIRS = Blocks.SPRUCE_STAIRS.getDefaultState();
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
     private static final BlockState SPRUCE_SLAB = Blocks.SPRUCE_SLAB.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
+
+    protected Vector3i[] miscDirections = {
+            new Vector3i(WIDTH,-HEIGHT,0),
+            new Vector3i(0,-HEIGHT,-WIDTH),
+            new Vector3i(-WIDTH,-HEIGHT,0),
+            new Vector3i(0,-HEIGHT,WIDTH),
+    };
+
+    @Override
+    public void placeAt(World world, BlockPos pos, Generator generator) {
+        super.placeAt(world, pos, generator);
+        int angle = (rotation.angle + 2) % 4;
+        Miscellaneous.Misc_0007.setRotation(TileRotation.fromAngle(angle)).placeAt(world, pos.add(miscDirections[rotation.angle]), generator);
+    }
 
     private void addWestVariants() {
         addVariant_w(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_90);
