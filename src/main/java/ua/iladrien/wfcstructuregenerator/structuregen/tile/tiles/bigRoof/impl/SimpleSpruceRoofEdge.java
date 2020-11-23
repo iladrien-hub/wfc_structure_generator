@@ -3,13 +3,25 @@ package ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl;
 import net.minecraft.block.*;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.RoofEdge;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.misc.Miscellaneous;
 
 public class SimpleSpruceRoofEdge extends RoofEdge {
 
     private static final BlockState SPRUCE_STAIRS = Blocks.SPRUCE_STAIRS.getDefaultState();
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
+
+
+
+    @Override
+    public void placeAt(World world, BlockPos pos, Generator generator) {
+        super.placeAt(world, pos, generator);
+        Miscellaneous.Misc_0008.setRotation(rotation).placeAt(world, pos.add(0,-HEIGHT,0), generator);
+    }
 
     @Override
     public BlockState[][][] getStructure() {
