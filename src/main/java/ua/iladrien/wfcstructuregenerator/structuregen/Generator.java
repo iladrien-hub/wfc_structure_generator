@@ -171,4 +171,8 @@ public class Generator {
     public boolean checkCoordinates(int x, int y, int z) {
         return x >= 0 && y >=0 && z >=0 && x < size_X && y < size_Y && z < size_Z;
     }
+
+    public boolean checkCoordinates(Vector3i pos) {
+        return checkCoordinates(pos.getX(), pos.getY(), pos.getZ());
+    }
 }
