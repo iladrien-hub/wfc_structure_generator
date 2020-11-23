@@ -31,7 +31,14 @@ public abstract class Tile {
     private final ArrayList<Tile> variants_e = new ArrayList<>();
     private final ArrayList<Tile> variants_w = new ArrayList<>();
 
-    public void placeAt(World world, BlockPos pos) {
+    protected Vector3i[] directions = {
+            new Vector3i(0,0,1),
+            new Vector3i(1,0,0),
+            new Vector3i(0,0,-1),
+            new Vector3i(-1,0,0),
+    };
+
+    public void placeAt(World world, BlockPos pos, Generator generator) {
         BlockState[][][] data  = getStructure();
         switch (rotation) {
             case ROTATION0:
