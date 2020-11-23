@@ -2,6 +2,7 @@ package ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof;
 
 import net.minecraft.util.math.vector.Vector3i;
 import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
+import ua.iladrien.wfcstructuregenerator.structuregen.LazyStuff;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.Tile;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 
@@ -23,11 +24,7 @@ public abstract class RoofEdge extends Tile {
     @Override
     public boolean checkOutStrictConditions(Vector3i pos, Generator generator) {
         Vector3i forward = directions[rotation.angle];
-        return generator.checkCoordinates(
-                pos.getX() + forward.getX(),
-                pos.getY() + forward.getY(),
-                pos.getZ() + forward.getZ()
-        );
+        return generator.checkCoordinates(LazyStuff.addVectors3(forward, pos));
     }
 
     @Override
