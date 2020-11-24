@@ -2,6 +2,8 @@ package ua.iladrien.wfcstructuregenerator.structuregen;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
+import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 
 public class RotateStructure {
@@ -13,9 +15,21 @@ public class RotateStructure {
             Direction.NORTH
     };
 
-    private static int fromVal(Direction dir) {
+    private static final Direction.Axis[] axis = new Direction.Axis[] {
+            Direction.Axis.X,
+            Direction.Axis.Y,
+    };
+
+    private static int facingFromVal(Direction dir) {
         for (int i = 0; i < directions.length; i++) {
             if (directions[i] == dir) return i;
+        }
+        return -1;
+    }
+
+    private static int axisFromVal(Direction.Axis ax) {
+        for (int i = 0; i < axis.length; i++) {
+            if (axis[i] == ax) return i;
         }
         return -1;
     }
@@ -24,8 +38,23 @@ public class RotateStructure {
         // HORIZONTAL_FACING
         try {
             Direction facing = initial.get(HorizontalBlock.HORIZONTAL_FACING);
-            int facingIn = (fromVal(facing) + angle) % 4;
+            int facingIn = (facingFromVal(facing) + angle) % 4;
             initial = initial.with(HorizontalBlock.HORIZONTAL_FACING, directions[facingIn]);
+        } catch (Exception ignored) { }
+        // AXIS
+        try {
+            Direction.Axis facing = initial.get(RotatedPillarBlock.AXIS);
+            int facingIn = (axisFromVal(facing) + angle) % 2;
+            initial = initial.with(RotatedPillarBlock.AXIS, axis[facingIn]);
+        } catch (Exception ignored) { }
+        // FOUR WAY BLOCK
+        try {
+            boolean[] dir = new boolean[4];
+            dir[angle]       = initial.get(BlockStateProperties.SOUTH);
+            dir[(angle+1)%4] = initial.get(BlockStateProperties.EAST);
+            dir[(angle+2)%4] = initial.get(BlockStateProperties.NORTH);
+            dir[(angle+3)%4] = initial.get(BlockStateProperties.WEST);
+            initial = initial.with(BlockStateProperties.SOUTH, dir[0]).with(BlockStateProperties.EAST, dir[1]).with(BlockStateProperties.NORTH, dir[2]).with(BlockStateProperties.WEST, dir[3]);
         } catch (Exception ignored) { }
         return initial;
     }
