@@ -158,7 +158,12 @@ public class Generator {
             for (int x = 0; x < size_X; x++) {
                 for (int z = 0; z < size_Z; z++) {
                     if (data[y][x][z].list.size() == 1) {
-                        data[y][x][z].list.get(0).placeAt(world, pos.add(Tile.WIDTH * x - center_x - x, Tile.HEIGHT * y, Tile.WIDTH * z - center_z - z), this);
+                        data[y][x][z].list.get(0).placeAt(
+                                world,
+                                pos.add(Tile.WIDTH * x - center_x - x, Tile.HEIGHT * y, Tile.WIDTH * z - center_z - z),
+                                new Vector3i(x, y, z),
+                                this)
+                        ;
                     } else
                         WFCStructureGenerator.log(Level.WARN, "At (" +
                                 String.join(",", new String[]{String.valueOf(x), String.valueOf(y), String.valueOf(z)}) +
@@ -166,6 +171,11 @@ public class Generator {
                 }
             }
         }
+    }
+
+    public Tile getTileAt(Vector3i pos) {
+        if (checkCoordinates(pos)) return data[pos.getY()][pos.getX()][pos.getZ()].list.get(0);
+        return null;
     }
 
     public boolean checkCoordinates(int x, int y, int z) {
