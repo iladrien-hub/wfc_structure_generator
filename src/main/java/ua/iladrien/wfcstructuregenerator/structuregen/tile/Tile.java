@@ -38,7 +38,7 @@ public abstract class Tile {
             new Vector3i(-1,0,0),
     };
 
-    public void placeAt(World world, BlockPos pos, Generator generator) {
+    public void placeAt(World world, BlockPos pos, Vector3i generatorPos, Generator generator) {
         BlockState[][][] data  = getStructure();
         switch (rotation) {
             case ROTATION0:

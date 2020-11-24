@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.World;
 import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
+import ua.iladrien.wfcstructuregenerator.structuregen.LazyStuff;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.TileRotation;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof_T;
@@ -28,11 +29,20 @@ public class TileSimpleSpruceRoof_T extends BigRoof_T {
             new Vector3i(0,-HEIGHT,WIDTH),
     };
 
+    private Vector3i[] miscOffset = {
+            new Vector3i(1,-1,0),
+            new Vector3i(0,-1,-1),
+            new Vector3i(-1,-1,0),
+            new Vector3i(0,-1,1),
+    };
+
     @Override
-    public void placeAt(World world, BlockPos pos, Generator generator) {
-        super.placeAt(world, pos, generator);
+    public void placeAt(World world, BlockPos pos, Vector3i generatorPos, Generator generator) {
+        super.placeAt(world, pos, generatorPos, generator);
         int angle = (rotation.angle + 2) % 4;
-        Miscellaneous.Misc_0007.setRotation(TileRotation.fromAngle(angle)).placeAt(world, pos.add(miscDirections[rotation.angle]), generator);
+        Miscellaneous.Misc_0007
+                .setRotation(TileRotation.fromAngle(angle))
+                .placeAt(world, pos.add(miscDirections[rotation.angle]), LazyStuff.addVectors3(miscOffset[rotation.angle],generatorPos), generator);
     }
 
     private void addWestVariants() {

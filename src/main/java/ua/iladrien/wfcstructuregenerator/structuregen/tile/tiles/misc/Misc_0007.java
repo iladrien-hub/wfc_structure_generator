@@ -7,17 +7,11 @@ import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
 import net.minecraft.util.Direction;
-import ua.iladrien.wfcstructuregenerator.structuregen.tile.Tile;
 
-public class Misc_0007 extends Tile {
+public class Misc_0007 extends AbstractMiscellaneous {
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
     private static final BlockState SPRUCE_SLAB = Blocks.SPRUCE_SLAB.getDefaultState();
     private static final BlockState SPRUCE_STAIRS = Blocks.SPRUCE_STAIRS.getDefaultState();
-
-    @Override
-    public void registerVariants() {
-
-    }
 
     @Override
     public BlockState[][][] getStructure() {

@@ -4,8 +4,10 @@ import net.minecraft.block.*;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.World;
 import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
+import ua.iladrien.wfcstructuregenerator.structuregen.LazyStuff;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.RoofEdge;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.misc.Miscellaneous;
 
@@ -15,12 +17,11 @@ public class SimpleSpruceRoofEdge extends RoofEdge {
     private static final BlockState SPRUCE_TRAPDOOR = Blocks.SPRUCE_TRAPDOOR.getDefaultState();
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
 
-
-
     @Override
-    public void placeAt(World world, BlockPos pos, Generator generator) {
-        super.placeAt(world, pos, generator);
-        Miscellaneous.Misc_0008.setRotation(rotation).placeAt(world, pos.add(0,-HEIGHT,0), generator);
+    public void placeAt(World world, BlockPos pos, Vector3i generatorPos, Generator generator) {
+        super.placeAt(world, pos, generatorPos, generator);
+        Miscellaneous.Misc_0008.setRotation(rotation)
+                .placeAt(world, pos.add(0,-HEIGHT,0), LazyStuff.addVectors3(generatorPos, new Vector3i(0,-1,0)), generator);
     }
 
     @Override
