@@ -108,6 +108,9 @@ public class StickSelectorItem extends Item {
             else if (clazz == BlockStateProperties.CHEST_TYPE.getValueClass()) {
                 fw.write(".with(BlockStateProperties.CHEST_TYPE, ChestType." + item.getValue().toString().toUpperCase() + ")");
             }
+            else if (clazz == BlockStateProperties.FACE.getValueClass()) {
+                fw.write(".with(BlockStateProperties.FACE, AttachFace." + item.getValue().toString().toUpperCase() + ")");
+            }
             else if (name.equals("north")) {
                 fw.write(".with(BlockStateProperties.NORTH, " + item.getValue().toString() + ")");
             }
