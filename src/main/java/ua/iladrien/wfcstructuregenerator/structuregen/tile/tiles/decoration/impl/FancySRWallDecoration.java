@@ -8,7 +8,7 @@ import net.minecraft.state.properties.DoubleBlockHalf;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.DirectionalDecoration;
 
-public class ChestCraftTablePumpkins extends DirectionalDecoration {
+public class FancySRWallDecoration extends DirectionalDecoration {
     private static final BlockState SPRUCE_FENCE = Blocks.SPRUCE_FENCE.getDefaultState();
     private static final BlockState PUMPKIN = Blocks.PUMPKIN.getDefaultState();
     private static final BlockState GRASS = Blocks.GRASS.getDefaultState();
@@ -19,7 +19,7 @@ public class ChestCraftTablePumpkins extends DirectionalDecoration {
     private static final BlockState CRAFTING_TABLE = Blocks.CRAFTING_TABLE.getDefaultState();
     private static final BlockState LANTERN = Blocks.LANTERN.getDefaultState();
 
-    public ChestCraftTablePumpkins() {
+    public FancySRWallDecoration() {
         super();
         onGroundOnly = true;
     }
