@@ -8,6 +8,7 @@ import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
 import ua.iladrien.wfcstructuregenerator.structuregen.RotateStructure;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class Tile {
 
@@ -22,6 +23,8 @@ public abstract class Tile {
     protected boolean allowedOnEdge = false;
 
     protected TileRotation rotation = TileRotation.ROTATION0;
+
+    protected static final Random RANDOM = new Random(System.currentTimeMillis());
 
     // Variants
     private final ArrayList<Tile> variants_u = new ArrayList<>();
