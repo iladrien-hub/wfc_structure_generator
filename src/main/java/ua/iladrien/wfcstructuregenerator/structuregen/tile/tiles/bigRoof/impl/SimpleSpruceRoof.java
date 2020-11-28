@@ -13,7 +13,7 @@ import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.misc.Miscellaneous;
 
-public class TileSimpleSpruceRoof extends BigRoof {
+public class SimpleSpruceRoof extends BigRoof {
 
     private static final BlockState SPRUCE_STAIRS = Blocks.SPRUCE_STAIRS.getDefaultState();
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
@@ -23,16 +23,16 @@ public class TileSimpleSpruceRoof extends BigRoof {
     @Override
     public void placeAt(World world, BlockPos pos, Vector3i generatorPos, Generator generator) {
         super.placeAt(world, pos, generatorPos, generator);
-//        switch (rotation) {
-//            case ROTATION0:
-//                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION0).placeAt(world, pos.add(-WIDTH, -HEIGHT, 0), generatorPos, generator);
-//                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION180).placeAt(world, pos.add(WIDTH,-HEIGHT, 0), generatorPos, generator);
-//                break;
-//            case ROTATION90:
-//                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION90).placeAt(world, pos.add(0, -HEIGHT, WIDTH), generatorPos, generator);
-//                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION270).placeAt(world, pos.add(0, -HEIGHT,-WIDTH), generatorPos, generator);
-//                break;
-//        }
+        switch (rotation) {
+            case ROTATION0:
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION0).placeAt(world, pos.add(-WIDTH, -HEIGHT, 0), generatorPos, generator);
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION180).placeAt(world, pos.add(WIDTH,-HEIGHT, 0), generatorPos, generator);
+                break;
+            case ROTATION90:
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION90).placeAt(world, pos.add(0, -HEIGHT, WIDTH), generatorPos, generator);
+                Miscellaneous.Misc_0007.setRotation(TileRotation.ROTATION270).placeAt(world, pos.add(0, -HEIGHT,-WIDTH), generatorPos, generator);
+                break;
+        }
     }
 
     @Override
@@ -62,7 +62,7 @@ public class TileSimpleSpruceRoof extends BigRoof {
                 addVariant_s(Tiles.EMPTY_TILE);
                 // EAST
                 addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_90);
-                addVariant_n(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_270);
+                addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_EDGE_270);
                 addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T);
                 addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T_90);
                 addVariant_e(Tiles.SIMPLE_SPRUCE_ROOF_T_270);

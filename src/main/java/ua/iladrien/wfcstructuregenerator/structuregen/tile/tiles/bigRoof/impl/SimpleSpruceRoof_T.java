@@ -15,7 +15,7 @@ import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.BigRoof_T;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.misc.Miscellaneous;
 
-public class TileSimpleSpruceRoof_T extends BigRoof_T {
+public class SimpleSpruceRoof_T extends BigRoof_T {
 
     private static final BlockState SPRUCE_STAIRS = Blocks.SPRUCE_STAIRS.getDefaultState();
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
