@@ -34,9 +34,6 @@ public class Generator {
                     } else {
                         result[y][x][z].list.removeIf(Tile::isOnGroundOnly);
                     }
-//                    if (x == 0 || x == size_X-1 || z == 0 || z == size_Z-1) {
-//                        result[y][x][z].list.removeIf(tile -> !tile.isAllowedOnEdge());
-//                    }
                 }
         return result;
     }
@@ -96,19 +93,6 @@ public class Generator {
             enqueueNeighbours(new Vector3i(max.x, max.y, max.z));
             collapse();
         }
-    }
-
-    protected void resetNeighbours(Vector3i pos) {
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-        data[y][x][z].list = Tiles.getRegistered();
-        if (checkCoordinates(x+1, y, z)) data[y][x+1][z].list = Tiles.getRegistered();
-        if (checkCoordinates(x-1, y, z)) data[y][x-1][z].list = Tiles.getRegistered();
-        if (checkCoordinates(x, y+1, z)) data[y+1][x][z].list = Tiles.getRegistered();
-        if (checkCoordinates(x, y-1, z)) data[y-1][x][z].list = Tiles.getRegistered();
-        if (checkCoordinates(x, y, z+1)) data[y][x][z+1].list = Tiles.getRegistered();
-        if (checkCoordinates(x, y, z-1)) data[y][x][z-1].list = Tiles.getRegistered();
     }
 
     protected void enqueueNeighbours(Vector3i pos) {
