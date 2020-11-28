@@ -1,5 +1,6 @@
 package ua.iladrien.wfcstructuregenerator.events;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
@@ -26,6 +27,7 @@ public class ModEvents {
             PLAYER = player;
             World world = event.getEntity().getEntityWorld();
             BlockPos pos = event.getPos();
+            world.setBlockState(pos, Blocks.AIR.getDefaultState());
             // =======================================================================================================
             Generator gen = new Generator();
             gen.generate();
