@@ -115,7 +115,7 @@ public class StickSelectorItem extends Item {
             } else if (key == BlockStateProperties.field_235911_V_) {
                 fw.write(".with(BlockStateProperties.field_235911_V_,  WallHeight." + item.getValue().toString().toUpperCase() + ")");
             } else if (key == BlockStateProperties.WEST) {
-                    fw.write(".with(BlockStateProperties.WEST, " + item.getValue().toString() + ")");
+                fw.write(".with(BlockStateProperties.WEST, " + item.getValue().toString() + ")");
             } else if (key == BlockStateProperties.UP) {
                 fw.write(".with(BlockStateProperties.UP, " + item.getValue().toString() + ")");
             } else if (key == BlockStateProperties.LIT) {
