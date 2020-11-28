@@ -26,9 +26,9 @@ public class FancyStoneRoom extends SmallRoom {
         addVariant_w(Tiles.STONE_ON_GROUND_SUPPORT);
         addVariant_e(Tiles.STONE_ON_GROUND_SUPPORT_180);
         addVariant_s(Tiles.STONE_ON_GROUND_SUPPORT_90);
-        addVariant_w(Tiles.CHEST_CRAFT_TABLE_PUMPKINS);
-        addVariant_e(Tiles.CHEST_CRAFT_TABLE_PUMPKINS_180);
-        addVariant_s(Tiles.CHEST_CRAFT_TABLE_PUMPKINS_90);
+        addVariant_w(Tiles.FANCYSR_WALL_DECORATION);
+        addVariant_e(Tiles.FANCYSR_WALL_DECORATION_180);
+        addVariant_s(Tiles.FANCYSR_WALL_DECORATION_90);
     }
 
     @Override

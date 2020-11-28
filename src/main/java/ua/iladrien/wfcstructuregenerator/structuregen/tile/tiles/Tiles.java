@@ -6,7 +6,7 @@ import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.Si
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.SimpleSpruceRoof;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoof.impl.SimpleSpruceRoof_T;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoom.impl.TileBigSpruceRoom;
-import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.impl.ChestCraftTablePumpkins;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.impl.FancySRWallDecoration;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.decoration.impl.StoneOnGroundSupport;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.smallRoom.impl.FancyStoneRoom;
 
@@ -40,11 +40,11 @@ public class Tiles {
     public static final Tile STONE_ON_GROUND_SUPPORT_90 = register(new StoneOnGroundSupport()).setRotation(TileRotation.ROTATION90);
     public static final Tile STONE_ON_GROUND_SUPPORT_180 = register(new StoneOnGroundSupport()).setRotation(TileRotation.ROTATION180);
     public static final Tile STONE_ON_GROUND_SUPPORT_270 = register(new StoneOnGroundSupport()).setRotation(TileRotation.ROTATION270);
-    // CHEST_CRAFT_TABLE_PUMPKINS
-    public static final Tile CHEST_CRAFT_TABLE_PUMPKINS = register(new ChestCraftTablePumpkins());
-    public static final Tile CHEST_CRAFT_TABLE_PUMPKINS_90 = register(new ChestCraftTablePumpkins()).setRotation(TileRotation.ROTATION90);
-    public static final Tile CHEST_CRAFT_TABLE_PUMPKINS_180 = register(new ChestCraftTablePumpkins()).setRotation(TileRotation.ROTATION180);
-    public static final Tile CHEST_CRAFT_TABLE_PUMPKINS_270 = register(new ChestCraftTablePumpkins()).setRotation(TileRotation.ROTATION270);
+    // FANCYSR_WALL_DECORATION
+    public static final Tile FANCYSR_WALL_DECORATION = register(new FancySRWallDecoration());
+    public static final Tile FANCYSR_WALL_DECORATION_90 = register(new FancySRWallDecoration()).setRotation(TileRotation.ROTATION90);
+    public static final Tile FANCYSR_WALL_DECORATION_180 = register(new FancySRWallDecoration()).setRotation(TileRotation.ROTATION180);
+    public static final Tile FANCYSR_WALL_DECORATION_270 = register(new FancySRWallDecoration()).setRotation(TileRotation.ROTATION270);
 
 
     private static Tile register(Tile asset) {
