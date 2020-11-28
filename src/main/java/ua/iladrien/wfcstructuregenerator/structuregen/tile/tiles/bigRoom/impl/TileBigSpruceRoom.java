@@ -4,13 +4,50 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3i;
+import net.minecraft.world.World;
+import ua.iladrien.wfcstructuregenerator.structuregen.Generator;
+import ua.iladrien.wfcstructuregenerator.structuregen.LazyStuff;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.Tile;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.TileRotation;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.Tiles;
 import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.bigRoom.BigRoom;
+import ua.iladrien.wfcstructuregenerator.structuregen.tile.tiles.misc.Miscellaneous;
 
 public class TileBigSpruceRoom extends BigRoom {
 
     private static final BlockState SPRUCE_LOG = Blocks.SPRUCE_LOG.getDefaultState();
     private static final BlockState SPRUCE_PLANKS = Blocks.SPRUCE_PLANKS.getDefaultState();
+
+    static Vector3i[] directions = new Vector3i[] {
+            new Vector3i(0,0,-1),
+            new Vector3i(-1,0,0),
+            new Vector3i(0,0,1),
+            new Vector3i(1,0,0),
+    };
+
+    static Vector3i[] offsets = new Vector3i[] {
+            new Vector3i(0,0,1-WIDTH),
+            new Vector3i(1-WIDTH,0,0),
+            new Vector3i(0,0,WIDTH-1),
+            new Vector3i(WIDTH-1,0,0),
+    };
+
+    static Tile[] windows = new Tile[] {
+            Miscellaneous.Misc_0009,
+            Miscellaneous.Misc_0010,
+    };
+
+    @Override
+    public void placeAt(World world, BlockPos pos, Vector3i generatorPos, Generator generator) {
+        super.placeAt(world, pos, generatorPos, generator);
+        for (int i = 0; i < 4; i++) {
+            Tile tile = generator.getTileAt(LazyStuff.addVectors3(generatorPos, directions[i]));
+            if (tile == Tiles.EMPTY_TILE || tile == null)
+                windows[RANDOM.nextInt(windows.length)].setRotation(TileRotation.fromAngle(i)).placeAt(world, pos.add(offsets[i]), generatorPos, generator);
+        }
+    }
 
     @Override
     public void registerVariants() {
