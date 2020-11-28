@@ -17,7 +17,7 @@ public class RotateStructure {
 
     private static final Direction.Axis[] axis = new Direction.Axis[] {
             Direction.Axis.X,
-            Direction.Axis.Y,
+            Direction.Axis.Z,
     };
 
     private static int facingFromVal(Direction dir) {
@@ -45,7 +45,8 @@ public class RotateStructure {
         try {
             Direction.Axis facing = initial.get(RotatedPillarBlock.AXIS);
             int facingIn = (axisFromVal(facing) + angle) % 2;
-            initial = initial.with(RotatedPillarBlock.AXIS, axis[facingIn]);
+            if (facing != Direction.Axis.Y)
+                initial = initial.with(RotatedPillarBlock.AXIS, axis[facingIn]);
         } catch (Exception ignored) { }
         // FOUR WAY BLOCK
         try {
